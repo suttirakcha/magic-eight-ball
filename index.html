@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Magic Eight Ball</title>
+        <!-- font link -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="box" id="box-page-one">
+                <h1>Welcome to Magic Eight Ball</h1>
+                <h2>How to play:</h2>
+                <div class="instruction">
+                    <p>
+                        Tell me your name, then
+                        ask any question (The question should be <strong>yes/no question</strong> e.g. Can I be a model?).
+                        The system will generate an answer and let's see that the lucky result may match you.
+                    </p>
+                </div>
+                <button onclick="goNext()">Get started</button>
+            </div>
+            <h1 id="name"></h1> <!-- This identifier will show the name first, then change to the question users asked. -->
+            <h1 id="result"></h1>
+            <div class="container">
+                <div class="box" id="name-input">
+                    <h1>Please tell me your name.</h1>
+                    <input type="text" name="username" id="username" autocomplete="off" maxlength="30" onkeyup="countCharOne()"> (<span id="count-one">0</span> / 30)<br><br>
+                    <button onclick="setName()">Next</button>
+                </div>
+                <div class="box" id="question-input">
+                    <div class="asking">
+                        <h1>What would you like to ask?</h1>
+                        <h2>(Yes / No question only)</h2>
+                    </div>
+                    
+                    <input type="text" name="question" id="question" autocomplete="off" maxlength="50" onkeyup="countCharTwo()"> (<span id="count-two">0</span> / 50)<br><br>
+                    <button onclick="setQuestion()">Next</button>
+                </div>
+            </div>
+            <div id="tryAgain">
+                <h2 id="anotherMessage"></h2>
+                <button onclick="refresh()">Try again</button>
+            </div>
+            <script src="script.js"></script>
+        </div>
+    </body>
+</html>
